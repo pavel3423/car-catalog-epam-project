@@ -1,0 +1,133 @@
+.card {
+    border-radius: 1rem;
+    margin: 12px;
+}
+
+.card-img-top {
+    overflow: hidden;
+}
+
+.card img {
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+}
+
+.card img:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.cardModel {
+    padding: 3px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-body-model {
+    text-align: center;
+    padding-top: 23px;
+}
+
+.imageBrand {
+    padding-top: 15px;
+    height: 182px;
+    width: 158px;
+    margin: auto;
+}
+
+.imageModel {
+    height: 100px;
+    width: 160px;
+    margin: auto;
+}
+
+.form-horizontal {
+    text-align: center;
+    left: 30%;
+}
+
+.card-panel {
+    margin: 0;
+    border-radius: .25rem;
+}
+
+.panel-elements {
+    margin-bottom: 10px;
+}
+
+.form-add-text-image > form > .form-group {
+    margin-bottom: 2rem;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #343a40;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.select-language {
+    margin-right: 12px;
+    text-align: right;
+}
+
+.select-language a {
+    color: white;
+}
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader {
+    width: 30px;
+    height: 30px;
+    border: 7px solid #000;
+    border-left-color: #333;
+    border-right-color: transparent;
+    border-bottom-color: #555;
+    border-radius: 100%;
+
+    -webkit-animation: spin 600ms infinite linear;
+    -moz-animation: spin 600ms infinite linear;
+    -ms-animation: spin 600ms infinite linear;
+    animation: spin 600ms infinite linear;
+}
