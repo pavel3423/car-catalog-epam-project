@@ -18,9 +18,9 @@ public class ConnectionPoolImpl implements ConnectionPool {
 
     static {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("db_config");
-        URL = resourceBundle.getString("jdbc.URL");
-        USER = resourceBundle.getString("jdbc.USER");
-        PASSWORD = resourceBundle.getString("jdbc.PASSWORD");
+        URL = resourceBundle.getString("jdbc.url");
+        USER = resourceBundle.getString("jdbc.user");
+        PASSWORD = resourceBundle.getString("jdbc.password");
         try {
             DriverManager.registerDriver(new Driver());
 
@@ -49,6 +49,7 @@ public class ConnectionPoolImpl implements ConnectionPool {
     @Override
     public void putConnection(Connection connection) {
         try {
+            //TODO check speed connections
             if (connection.isClosed()) {
                 connections.put(createConnection());
             } else {
