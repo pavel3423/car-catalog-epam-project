@@ -8,7 +8,7 @@ import by.htp.car_catalog.entity.Car;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CarDaoImpl implements CarDao {
+public class CarDaoImpl extends AcstractDao implements CarDao {
     private final ConnectionPool connectionPool = new ConnectionPoolImpl();
     private final static String CREATE_CAR_SQL_QUERY = "INSERT INTO cars (`id`, `modelID`, `year`, `bodyType`, `length`, `width`, `height`, `base`, `numberOfDoors`, `clearance`, `trunk`, `volumeOfTheTank`, `numberOfPlaces`, `price`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final static String READ_CAR_SQL_QUERY = "SELECT * FROM cars WHERE id = ?";
@@ -97,18 +97,7 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public void delete(int id) {
-        Connection connection = connectionPool.getConnection();
-        try (
-                PreparedStatement statement = connection.prepareStatement(DELETE_CAR_SQL_QUERY)
-        ) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            //TODO logger
-            e.printStackTrace();
-        } finally {
-            connectionPool.putConnection(connection);
-        }
+        super.delete(connectionPool, DELETE_CAR_SQL_QUERY, id);
     }
 
     private void setCarInStatement(PreparedStatement statement, Car car) throws SQLException {

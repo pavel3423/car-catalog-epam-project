@@ -8,7 +8,7 @@ import by.htp.car_catalog.entity.BrandCar;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class BrandCarDaoImpl implements BrandCarDao {
+public class BrandCarDaoImpl extends AcstractDao implements BrandCarDao {
     private final ConnectionPool connectionPool = new ConnectionPoolImpl();
     private final static String CREATE_BRAND_SQL_QUERY = "INSERT INTO brands_car (`id`, `brand`) VALUES (?, ?)";
     private final static String READ_BRAND_SQL_QUERY = "SELECT * FROM brands_car WHERE id = ?";
@@ -25,9 +25,10 @@ public class BrandCarDaoImpl implements BrandCarDao {
             setBrandInStatement(statement, brand);
             int count = statement.executeUpdate();
             if (count == 1) {
-                ResultSet resultSet = statement.getGeneratedKeys();
-                if (resultSet.next()) {
-                    brand.setId(resultSet.getInt(1));
+                try (ResultSet resultSet = statement.getGeneratedKeys()) {
+                    if (resultSet.next()) {
+                        brand.setId(resultSet.getInt(1));
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -97,18 +98,7 @@ public class BrandCarDaoImpl implements BrandCarDao {
 
     @Override
     public void delete(int id) {
-        Connection connection = connectionPool.getConnection();
-        try (
-                PreparedStatement statement = connection.prepareStatement(DELETE_BRAND_SQL_QUERY)
-        ) {
-            statement.setInt(1, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            //TODO logger
-            e.printStackTrace();
-        } finally {
-            connectionPool.putConnection(connection);
-        }
+        super.delete(connectionPool, DELETE_BRAND_SQL_QUERY, id);
     }
 
     private void setBrandInStatement(PreparedStatement statement, BrandCar brand) throws SQLException {
