@@ -8,7 +8,7 @@ import by.htp.car_catalog.entity.Car;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CarDaoImpl extends AcstractDao implements CarDao {
+public class CarDaoImpl extends AbstractDao implements CarDao {
     private final ConnectionPool connectionPool = new ConnectionPoolImpl();
     private final static String CREATE_CAR_SQL_QUERY = "INSERT INTO cars (`id`, `modelID`, `year`, `bodyType`, `length`, `width`, `height`, `base`, `numberOfDoors`, `clearance`, `trunk`, `volumeOfTheTank`, `numberOfPlaces`, `price`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final static String READ_CAR_SQL_QUERY = "SELECT * FROM cars WHERE id = ?";

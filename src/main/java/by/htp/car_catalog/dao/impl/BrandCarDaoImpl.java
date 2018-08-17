@@ -8,7 +8,7 @@ import by.htp.car_catalog.entity.BrandCar;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class BrandCarDaoImpl extends AcstractDao implements BrandCarDao {
+public class BrandCarDaoImpl extends AbstractDao implements BrandCarDao {
     private final ConnectionPool connectionPool = new ConnectionPoolImpl();
     private final static String CREATE_BRAND_SQL_QUERY = "INSERT INTO brands_car (`id`, `brand`) VALUES (?, ?)";
     private final static String READ_BRAND_SQL_QUERY = "SELECT * FROM brands_car WHERE id = ?";

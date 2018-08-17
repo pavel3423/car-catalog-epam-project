@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-abstract class AcstractDao {
+abstract class AbstractDao {
 
     void delete(ConnectionPool connectionPool, String sql, int id) {
         Connection connection = connectionPool.getConnection();
