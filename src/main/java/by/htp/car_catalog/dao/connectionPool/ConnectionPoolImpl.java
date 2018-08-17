@@ -39,7 +39,10 @@ public class ConnectionPoolImpl implements ConnectionPool {
         Connection connection = null;
         try {
             connection = connections.take();
-        } catch (InterruptedException e) {
+            if (connection.isClosed()) {
+                return createConnection();
+            }
+        } catch (InterruptedException | SQLException e) {
             //TODO add logger
             e.printStackTrace();
         }
@@ -49,13 +52,8 @@ public class ConnectionPoolImpl implements ConnectionPool {
     @Override
     public void putConnection(Connection connection) {
         try {
-            //TODO check speed connections
-            if (connection.isClosed()) {
-                connections.put(createConnection());
-            } else {
-                connections.put(connection);
-            }
-        } catch (InterruptedException | SQLException e) {
+            connections.put(connection);
+        } catch (InterruptedException e) {
             //TODO add logger
             e.printStackTrace();
         }
