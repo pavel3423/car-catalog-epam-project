@@ -42,9 +42,9 @@ aria-label="Toggle navigation">
 
 <c:if test="${user==null }">
     <li class="nav-item active"><a class="nav-link"
-    href="<c:url value="/login"/>">Login</a></li>
+    href="<c:url value="/login.html"/>">Login</a></li>
     <li class="nav-item active"><a class="nav-link"
-    href="<c:url value="/signup"/>">Signup</a></li>
+    href="<c:url value="/signup.html"/>">Signup</a></li>
 </c:if>
 
 <c:if test="${user!=null }">
