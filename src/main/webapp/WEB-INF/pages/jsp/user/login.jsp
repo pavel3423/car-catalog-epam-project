@@ -9,7 +9,7 @@
     </div>
 </c:if>
 
-<form class="form-horizontal col-md-4" method="post" action="login">
+<form class="form-horizontal col-md-4" method="post" action="login.html">
 
     <legend>
         Login
@@ -19,7 +19,7 @@
         <div class="form-group ">
             <label class="control-label" for="login">
                 login:</label>
-            <input class="form-control input-md" id="login" placeholder="login"/>
+            <input class="form-control input-md" id="login" name="login" placeholder="login"/>
         </div>
         <div class="form-group ">
             <label class="control-label" for="password">

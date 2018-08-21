@@ -1,10 +1,7 @@
 package by.htp.car_catalog.web.controller;
 
 import by.htp.car_catalog.web.actions.Action;
-import by.htp.car_catalog.web.actions.impl.IndexAction;
-import by.htp.car_catalog.web.actions.impl.LoginAction;
-import by.htp.car_catalog.web.actions.impl.ProfileAction;
-import by.htp.car_catalog.web.actions.impl.SignupAction;
+import by.htp.car_catalog.web.actions.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +15,7 @@ class ActionManager {
         ACTIONS.put("/login", new LoginAction());
         ACTIONS.put("/signup", new SignupAction());
         ACTIONS.put("/profile", new ProfileAction());
+        ACTIONS.put("/logout", new LogoutAction());
     }
 
     static Action getAction(String action) {

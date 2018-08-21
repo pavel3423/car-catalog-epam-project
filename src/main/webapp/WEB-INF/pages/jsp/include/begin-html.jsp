@@ -49,9 +49,9 @@ aria-label="Toggle navigation">
 
 <c:if test="${user!=null }">
     <li class="nav-item active"><a class="nav-link"
-    href="<c:url value="/profile"/>">Profile</a></li>
+    href="<c:url value="/profile.html"/>">Profile</a></li>
     <li class="nav-item active"><a class="nav-link"
-    href="<c:url value="/logout"/>">Logout</a></li>
+    href="<c:url value="/logout.html"/>">Logout</a></li>
 </c:if>
 
 </ul>

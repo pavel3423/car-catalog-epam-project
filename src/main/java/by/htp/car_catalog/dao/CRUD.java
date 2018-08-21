@@ -1,9 +1,10 @@
 package by.htp.car_catalog.dao;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
 public interface CRUD<T> {
-    void create(T entity);
+    void create(T entity) throws SQLIntegrityConstraintViolationException;
 
     T read(int id);
 
